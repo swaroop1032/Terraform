@@ -3,8 +3,8 @@ pipeline {
 
   environment {
     TF_IN_AUTOMATION = "1"
-    PM_API_URL = "https://192.168.1.100:8006/api2/json"   // replace if needed
-    PM_API_TOKEN_ID = "terraform@pve!jenkins"            // replace if needed
+    PM_API_URL = "https://192.168.31.180:8006/api2/json"   // replace if needed
+    PM_API_TOKEN_ID = "terraform@pam!tf-token"            // replace if needed
   }
 
   stages {
