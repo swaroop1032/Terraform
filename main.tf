@@ -44,10 +44,5 @@ resource "proxmox_vm_qemu" "vm_from_jenkins" {
   # This sets the IP to DHCP.
   ipconfig0 = "ip=dhcp"
 
-  # You can also set a static IP like this:
-  # ipconfig0 = "ip=192.168.1.100/24,gw=192.168.1.1"
 
-  # Optional: Set a user and SSH key (highly recommended)
-  # sshkeys = var.ssh_public_key
-  # ciuser  = "ubuntu"
 }
