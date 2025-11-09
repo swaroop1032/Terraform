@@ -12,7 +12,7 @@ pipeline {
         TF_VAR_pm_api_token_secret = credentials('PROXMOX_API_TOKEN_SECRET')
         
         // This is a non-secret variable, so we set it directly
-        TF_VAR_pm_api_url         = "https://your-proxmox-ip:8006" // CHANGE THIS
+        TF_VAR_pm_api_url         = "https://192.168.31.180:8006/api2/json" // CHANGE THIS
     }
 
     stages {
