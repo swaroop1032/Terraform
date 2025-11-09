@@ -3,8 +3,8 @@ pipeline {
 
   environment {
     TF_IN_AUTOMATION = "1"
-    PM_API_URL = "https://192.168.31.180:8006/api2/json"   // <-- replace
-    PM_API_TOKEN_ID = "terraform@pam!tf-token"           // <-- replace if needed
+    PM_API_URL = "https://192.168.31.180:8006/api2/json"
+    PM_API_TOKEN_ID = "terraform@pam!tf-token"
   }
 
   stages {
@@ -84,7 +84,7 @@ pipeline {
           powershell """
             Set-Location -Path $env:WORKSPACE
             $env:TF_VAR_pm_api_url = '${env.PM_API_URL}'
-            $env:TF_VAR_pm_api_token_id = '${env.P_API_TOKEN_ID}'
+            $env:TF_VAR_pm_api_token_id = '${env.PM_API_TOKEN_ID}'
             $env:TF_VAR_pm_api_token_secret = '${PM_API_TOKEN_SECRET}'
 
             terraform apply -input=false -auto-approve tfplan
@@ -105,7 +105,6 @@ pipeline {
       powershell """
         Set-Location -Path $env:WORKSPACE
 
-        # Try to print outputs; if terraform returns non-zero don't fail the post step.
         terraform output
         if ($LASTEXITCODE -ne 0) {
           Write-Output 'No outputs available or terraform not initialized (non-zero exit code).'
