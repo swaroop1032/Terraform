@@ -23,16 +23,16 @@ resource "proxmox_vm_qemu" "vm_from_jenkins" {
   # --- General Settings ---
   name        = "vm-jenkins-01"
   desc        = "Managed by Terraform and Jenkins"
-  target_node = var.proxmox_node # The PVE node to build on (e.g., "pve")
+  target_node = var.proxmox_node # The PVE node to build on
 
   # --- Template and Boot ---
-  clone = var.vm_template_name # The template you made in Part 1
+  clone = var.vm_template_name
   os_type = "cloud-init"
 
   # --- Resources ---
   cores   = 2
   sockets = 1
-  memory  = 2048 # 2GB
+  memory  = 2048 
 
   # --- Network ---
   network {
