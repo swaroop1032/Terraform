@@ -21,7 +21,7 @@ provider "proxmox" {
 # 3. Define the Virtual Machine resource
 resource "proxmox_vm_qemu" "vm_from_jenkins" {
   # --- General Settings ---
-  name        = "vm-jenkins-01"
+  name        = "vm-swaroop-proxmox"
   desc        = "Managed by Terraform and Jenkins"
   target_node = var.proxmox_node # The PVE node to build on
 
