@@ -10,9 +10,7 @@ pipeline {
         // We will load these secrets from the Jenkins credentials store
         TF_VAR_pm_api_token_id    = credentials('PROXMOX_API_TOKEN_ID')
         TF_VAR_pm_api_token_secret = credentials('PROXMOX_API_TOKEN_SECRET')
-        
-        // This is a non-secret variable, so we set it directly
-        TF_VAR_pm_api_url         = "https://192.168.31.180:8006/api2/json" // CHANGE THIS
+        TF_VAR_pm_api_url         = "https://192.168.31.180:8006/api2/json"
     }
 
     stages {
@@ -39,8 +37,6 @@ pipeline {
 
         stage('Apply') {
             steps {
-                // This 'input' step makes Jenkins PAUSE and wait for a human
-                // to click "Proceed". This is a crucial safety check.
                 timeout(time: 15, unit: 'MINUTES') {
                     input message: 'Do you want to apply the Terraform plan?'
                 }
